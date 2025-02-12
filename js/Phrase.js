@@ -7,34 +7,22 @@ class Phrase {
     this.phrase = phrase.toLowerCase();
   }
   addPhraseToDisplay(phrase) {
-  
+    //adds letter placeholders to the display
+    //when the game starts. Each letter is presented by an empty box,
+    //one li element for each letter.
+    
     let splitPhrase = this.phrase.split('');
     let liHtml='';
     let phraseUL=document.querySelector("#phrase>ul")
-    console.log(splitPhrase);
-    console.log(splitPhrase.length);
+    
     for(let i=0;i<splitPhrase.length;i++){
-      if (splitPhrase[i]==''){
-        console.log(splitPhrase[i]);
-      
-      
-    }
-    else{
+      split
       liHtml += ` <li class="hide letter ${splitPhrase[i]}"></li> `;
-     
-
-    }
-    
-  }
-  phraseUL.innerHTML=liHtml;
+      phraseUL.innerHTML = liHtml;
 }
-   
-    
-       
-
-
-  checkLetter() {}
-  showMatchedLetter() {}
+}
+checkLetter() {}
+showMatchedLetter() {}
 }
    
     
