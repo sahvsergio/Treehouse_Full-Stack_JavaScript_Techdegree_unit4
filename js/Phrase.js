@@ -16,10 +16,17 @@ class Phrase {
     let phraseUL=document.querySelector("#phrase>ul")
     
     for(let i=0;i<splitPhrase.length;i++){
-      split
-      liHtml += ` <li class="hide letter ${splitPhrase[i]}"></li> `;
-      phraseUL.innerHTML = liHtml;
+     
+      if (splitPhrase[i] === ' ') {
+        liHtml += `<li class="space"></li>`;
+      } else {
+        liHtml += `<li class="hide letter ${splitPhrase[i]}"></li>`;
+
+
+
 }
+  }
+  phraseUL.innerHTML=liHtml;
 }
 checkLetter() {}
 showMatchedLetter() {}
