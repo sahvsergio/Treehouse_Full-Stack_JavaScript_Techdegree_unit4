@@ -39,13 +39,19 @@ class Game {
     return this.phrases[randomizedIndex];
   }
   handleInteraction(element) {
+    //gets the element's innerText for comparison
     let elementText=element.innerText;
+    //checks to see if the button clicked by 
+    //the player matches a letter in the phrase,
+    element.disabled = true;
     if (this.activePhrase.checkLetter(elementText)){
-     console.log('This is a letter included there')
-
+      
+      element.classList.add('chosen');
     }
     else{
-      console.log('You made an error');
+     
+      element.classList.add("wrong");
+    
 
     }
     
@@ -54,7 +60,7 @@ class Game {
     
   
 
-    //checks to see if the button clicked by the player matches a letter in the phrase,
+   
   }
 
   //Disable the selected letter’s onscreen keyboard button.
