@@ -11,7 +11,7 @@ startButton.addEventListener('click',(e)=>{
  game = new Game();
 
 game.startGame();
-return game;
+
 
 
 });
@@ -26,6 +26,7 @@ qwertyKeyboard.addEventListener('click',(e)=>{
    if (targetButton.classList.contains('key')){
    
    game.handleInteraction(targetButton);
+   
    }
 }
 );
