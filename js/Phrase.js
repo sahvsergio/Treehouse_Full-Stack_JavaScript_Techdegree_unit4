@@ -27,30 +27,15 @@ class Phrase {
 }
   }
   phraseUL.innerHTML=liHtml;
+  return splitPhrase;
 }
-checkLetter() {}
+checkLetter(text) {
+  //
+
+  }
+
 showMatchedLetter() {}
 }
-   
-    
 
-    
-    
-    
-
-    
-
-
-
-    
-    //Each letter is presented by an empty box,
-     //one li element for each letter. See the  
-    
-     
-     
-  
-    
-
- 
 
 
