@@ -30,6 +30,7 @@ class Game {
     //adds that phrase to the board by calling
     //the addPhraseToDisplay() method on the activePhrase property.
     this.activePhrase.addPhraseToDisplay();
+    return this.activePhrase;
   }
 
   getRandomPhrase() {
@@ -39,10 +40,19 @@ class Game {
   }
   handleInteraction(element) {
     let elementText=element.innerText;
+    if (this.activePhrase.checkLetter(elementText)){
+     console.log('This is a letter included there')
+
+    }
+    else{
+      console.log('You made an error');
+
+    }
+    
    
     
     
-    console.log(elementText);
+  
 
     //checks to see if the button clicked by the player matches a letter in the phrase,
   }
