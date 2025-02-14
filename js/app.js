@@ -4,9 +4,8 @@
 
 let startButton = document.querySelector('#btn__reset');
 let qwertyKeyboard=document.querySelector("#qwerty");
-let scoreboard = document.querySelector('#scoreboard');
-let heartsList =scoreboard.children;
-console.log(heartsList);
+let scoreboard = document.querySelectorAll('.tries img');
+
 let game;
 
 startButton.addEventListener('click',(e)=>{

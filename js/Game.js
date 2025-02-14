@@ -66,26 +66,22 @@ class Game {
  //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
 
   removeLife(){
-    this.missed=1;
+    this.missed += 1;
     //removes a life from the scoreboard, 
-   
-  
- 
+   if (this.missed<=scoreboard.length+1) {
+       
+      
+      for (let i = 0;i<=scoreboard.length; i++) {
+        scoreboard[this.missed].src='images/lostHeart.png';
+        
     
-    if (this.missed<5) {
-      let lostHeart = document.createElement("img");
-      lostHeart.src = "images/lostHeart.png";
-      lostHeart.alt = "Heart Icon";
-      lostHeart.height = "35";
-      lostHeart.width = "30";
-      for (let i = 0; i < this.missed; i++) {
-        heartsList[i].appendChild(lostHeart);
-        heartsList[i].removeElement;
       }
     } else {
+      
       console.log("you lost");
     }
   }
+  
     
    
     
