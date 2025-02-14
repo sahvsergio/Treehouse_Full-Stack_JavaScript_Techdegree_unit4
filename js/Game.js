@@ -40,34 +40,65 @@ class Game {
   }
   handleInteraction(element) {
     //gets the element's innerText for comparison
-    let elementText=element.innerText;
-    //checks to see if the button clicked by 
+    let elementText = element.innerText;
+
     //the player matches a letter in the phrase,
+
+    //disables button
+
     element.disabled = true;
-    if (this.activePhrase.checkLetter(elementText)){
-      
-      element.classList.add('chosen');
-    }
-    else{
-     
+    //checks to see if the button clicked by
+    if (this.activePhrase.checkLetter(elementText)) {
+      //if letter in original phrase add chosen class
+      element.classList.add("chosen");
+      //call the showMatchedLetter() method on the phrase,
+      this.activePhrase.showMatchedLetter()
+    } else {
+      //otherwise add the wrong class
       element.classList.add("wrong");
-    
-
+      // call the remove life method
+      this.removeLife();
     }
-    
-   
-    
-    
-  
-
-   
   }
 
-  //Disable the selected letter’s onscreen keyboard button.
-  //If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-  //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
+  //
 
-  removeLife() {}
+ //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
+
+  removeLife(){
+    this.missed=1;
+    //removes a life from the scoreboard, 
+   
+  
+ 
+    
+    if (this.missed<5) {
+      let lostHeart = document.createElement("img");
+      lostHeart.src = "images/lostHeart.png";
+      lostHeart.alt = "Heart Icon";
+      lostHeart.height = "35";
+      lostHeart.width = "30";
+      for (let i = 0; i < this.missed; i++) {
+        heartsList[i].appendChild(lostHeart);
+        heartsList[i].removeElement;
+      }
+    } else {
+      console.log("you lost");
+    }
+  }
+    
+   
+    
+    //removes a life from the scoreboard, 
+    //by replacing one of the liveHeart.png images with a 
+    //lostHeart.png image (found in the images folder) 
+    
+     //If the player has five missed guesses (i.e they're out of lives), then end the game by calling the g
+
+
+  
+
+
   checkForWin() {}
   gameOver() {}
 }
