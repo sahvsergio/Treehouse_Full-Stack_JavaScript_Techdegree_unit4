@@ -16,7 +16,7 @@ class Phrase {
     let splitPhrase = this.phrase.split('');
     let liHtml='';
     console.log(splitPhrase)
-    let phraseUL=document.querySelector("#phrase>ul")
+    
     
     for(let i=0;i<splitPhrase.length;i++){
      
@@ -44,8 +44,27 @@ checkLetter(text) {
 
   
 
-showMatchedLetter() {}
+showMatchedLetter(element) {
+  let elementText=element.innerText;
+  
+  for(let i=0;i<phraseLi.length;i++){
+    if (phraseLi[i].classList.contains(elementText)){
+      phraseLi[i].innerText=elementText;
+      phraseLi[i].classList.add('show');
+      phraseLi[i].classList.remove('hide');
+
+
+      
+    }
+
+
+  }
 }
+}
+
+
+
+
 
 
 

@@ -41,6 +41,7 @@ class Game {
   handleInteraction(element) {
     //gets the element's innerText for comparison
     let elementText = element.innerText;
+    
 
     //the player matches a letter in the phrase,
 
@@ -52,7 +53,7 @@ class Game {
       //if letter in original phrase add chosen class
       element.classList.add("chosen");
       //call the showMatchedLetter() method on the phrase,
-      this.activePhrase.showMatchedLetter()
+      this.activePhrase.showMatchedLetter(element)
     } else {
       //otherwise add the wrong class
       element.classList.add("wrong");
@@ -95,7 +96,7 @@ class Game {
 
 
 
-    and depending on the outcome of the game, 
+    //and depending on the outcome of the game, 
     //updates the overlay h1 element with a friendly 
     //win or loss message, and replaces the overlay’s //
     //start CSS class with either the win or lose CSS class. 

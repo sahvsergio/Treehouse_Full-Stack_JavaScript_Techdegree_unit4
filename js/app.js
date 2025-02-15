@@ -5,6 +5,8 @@
 let startButton = document.querySelector('#btn__reset');
 let qwertyKeyboard=document.querySelector("#qwerty");
 let scoreboard = document.querySelectorAll('.tries img');
+let phraseUL = document.querySelector("#phrase>ul");
+let phraseLi=phraseUL.children;
 
 let game;
 
