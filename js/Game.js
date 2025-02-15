@@ -66,35 +66,38 @@ class Game {
  //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
 
   removeLife(){
-    this.missed += 1;
-    //removes a life from the scoreboard, 
-   if (this.missed<=scoreboard.length+1) {
+    
+    //if the player has five missed guesses
+   if (this.missed<scoreboard.length-1) {
        
       
-      for (let i = 0;i<=scoreboard.length; i++) {
+      for (let i = 0;i<scoreboard.length; i++) {
+       // replacing one of the liveHeart.png images with a 
+    //lostHeart.png image
         scoreboard[this.missed].src='images/lostHeart.png';
+       
         
     
       }
     } else {
       
-      console.log("you lost");
+      this.gameOver();
     }
+     this.missed += 1;
   }
-  
-    
-   
-    
-    //removes a life from the scoreboard, 
-    //by replacing one of the liveHeart.png images with a 
-    //lostHeart.png image (found in the images folder) 
-    
-     //If the player has five missed guesses (i.e they're out of lives), then end the game by calling the g
-
-
-  
-
-
   checkForWin() {}
-  gameOver() {}
+  gameOver() {
+     //displays the original start screen overlay
+    
+    overlay.style.display='block';
+    
+    
+
+
+
+    and depending on the outcome of the game, 
+    //updates the overlay h1 element with a friendly 
+    //win or loss message, and replaces the overlay’s //
+    //start CSS class with either the win or lose CSS class. 
+  }
 }
