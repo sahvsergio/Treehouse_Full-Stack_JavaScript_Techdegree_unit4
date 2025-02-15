@@ -8,10 +8,14 @@ let scoreboard = document.querySelectorAll('.tries img');
 let phraseUL = document.querySelector("#phrase>ul");
 let phraseLi=phraseUL.children;
 
+let shownLetters = document.querySelectorAll(".show");
+let chosenCounter=0;
+let spaces=document.querySelectorAll('.spaces');
+let splitPhrase;
 let game;
 
 startButton.addEventListener('click',(e)=>{
-
+   
  game = new Game();
 
 game.startGame();
