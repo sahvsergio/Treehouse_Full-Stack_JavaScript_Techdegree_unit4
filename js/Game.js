@@ -40,6 +40,7 @@ class Game {
     return this.phrases[randomizedIndex];
   }
   handleInteraction(element) {
+    
     //gets the element's innerText for comparison
     let elementText = element.innerText;
 
