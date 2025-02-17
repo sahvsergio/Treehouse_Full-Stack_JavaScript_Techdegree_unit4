@@ -58,7 +58,8 @@ class Game {
       
   
       if (this.checkForWin()) {
-        this.gameOver();
+        outcome='won'
+        this.gameOver(outcome);
       }
     } else {
       //otherwise add the wrong class
@@ -71,14 +72,15 @@ class Game {
 
   removeLife() {
     //if the player has five missed guesses
-    if (this.missed < scoreboard.length - 1) {
-      for (let i = 0; i < scoreboard.length; i++) {
+    if (this.missed < scoreBoard.length - 1) {
+      for (let i = 0; i < scoreBoard.length; i++) {
         // replacing one of the liveHeart.png images with a
         //lostHeart.png image
-        scoreboard[this.missed].src = "images/lostHeart.png";
+        scoreBoard[this.missed].src = "images/lostHeart.png";
       }
     } else {
-      this.gameOver();
+      outcome='lost'
+      this.gameOver(outcome);
     }
     this.missed += 1;
   }
@@ -97,20 +99,53 @@ class Game {
     else{
       return false;
     }
+    
 
     
     
 
   }
 
-  gameOver() {
+  gameOver(outcome) {
     //displays the original start screen overlay
+    let gameMessage=document.querySelector('h1');
 
     overlay.style.display = "block";
+    
+    if (outcome==='won'){
+
+      
+      overlay.classList.add('win');
+      overlay.classList.remove('lose');
+      gameMessage.textContent='Congratulations, you have won the game, want to play again?';
+      
+
+    }
+    else if(outcome==='lost'){
+      overlay.classList.add('lose');
+      overlay.classList.remove('win');
+      gameMessage.textContent='You have lost the game, Better luck next time, want to try again?';
+
+    }
+    let oldLetters = document.querySelectorAll(".key");
+    oldLetters.forEach(letter=>{
+      letter.classList.remove("chosen");
+      letter.classList.remove("wrong");
+      letter.disabled=false;
+    
+
+    })
+    
+   scoreBoard.forEach(score=>{
+    score.src = "images/liveHeart.png";
+   })
+    
+    
+  }
 
     //and depending on the outcome of the game,
     //updates the overlay h1 element with a friendly
     //win or loss message, and replaces the overlay’s //
     //start CSS class with either the win or lose CSS class.
-  }
+  
 }

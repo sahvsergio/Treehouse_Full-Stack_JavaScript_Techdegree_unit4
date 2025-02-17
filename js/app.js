@@ -4,19 +4,18 @@
 let body = document.querySelector("body");
 let startButton = document.querySelector("#btn__reset");
 let qwertyKeyboard = document.querySelector("#qwerty");
-let scoreboard = document.querySelectorAll(".tries img");
+let scoreBoard = document.querySelectorAll(".tries img");
 let phraseUL = document.querySelector("#phrase>ul");
 let phraseLi = phraseUL.children;
-
-
-
-
-
+let outcome;
 let splitPhrase;
 let game;
-let hasWon;
 
+
+
+///
 startButton.addEventListener("click", (e) => {
+   
   game = new Game();
 
   game.startGame();
