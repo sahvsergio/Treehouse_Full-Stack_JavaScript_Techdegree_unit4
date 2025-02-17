@@ -1,60 +1,46 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
-let body=document.querySelector('body');
-let startButton = document.querySelector('#btn__reset');
-let qwertyKeyboard=document.querySelector("#qwerty");
-let scoreboard = document.querySelectorAll('.tries img');
+let body = document.querySelector("body");
+let startButton = document.querySelector("#btn__reset");
+let qwertyKeyboard = document.querySelector("#qwerty");
+let scoreboard = document.querySelectorAll(".tries img");
 let phraseUL = document.querySelector("#phrase>ul");
-let phraseLi=phraseUL.children;
+let phraseLi = phraseUL.children;
 
-let shownLetters = document.querySelectorAll(".show");
-let chosenCounter=0;
-let spaces=document.querySelectorAll('.spaces');
+
+
+
+
 let splitPhrase;
 let game;
+let hasWon;
 
-startButton.addEventListener('click',(e)=>{
-   
- game = new Game();
+startButton.addEventListener("click", (e) => {
+  game = new Game();
 
-game.startGame();
-
-
-
+  game.startGame();
 });
 
 body.addEventListener("keyup", (e) => {
-   //if they hit enter, then the game starts
-   if(e.code==='Enter'){
-    
-       game = new Game();
-      game.startGame();
-      
-   }
+  //if they hit enter, then the game starts
+  if (e.code === "Enter") {
+    game = new Game();
+    game.startGame();
+  }
 });
 
-
-
-
-
-qwertyKeyboard.addEventListener('click',(e)=>{
-   let targetButton=e.target;
-   //
-   //compare if it contains the class key -->note to self, classList is an object
-   if (targetButton.classList.contains('key')){
-
-   
-   game.handleInteraction(targetButton);
-   
-   }
-}
-);
-
-
+qwertyKeyboard.addEventListener("click", (e) => {
+  let targetButton = e.target;
+  //
+  //compare if it contains the class key -->note to self, classList is an object
+  if (targetButton.classList.contains("key")) {
+    game.handleInteraction(targetButton);
+  }
+});
 
 body.addEventListener("keyup", (e) => {
-   //get the e.code instead of e.key to prevent issues with keyboard layouts
+  //get the e.code instead of e.key to prevent issues with keyboard layouts
   if (e.code.startsWith("Key")) {
     let letter = e.key.toLowerCase();
 
@@ -62,27 +48,10 @@ body.addEventListener("keyup", (e) => {
     let buttons = [...qwertyKeyboard.querySelectorAll("button.key")];
     let button = buttons.find((btn) => btn.textContent === letter);
 
-   
-     // Check if a button was found
+    // Check if a button was found
 
     if (button) {
       game.handleInteraction(button);
     }
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

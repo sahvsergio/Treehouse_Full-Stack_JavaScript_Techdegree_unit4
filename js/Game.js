@@ -40,7 +40,6 @@ class Game {
     return this.phrases[randomizedIndex];
   }
   handleInteraction(element) {
-    
     //gets the element's innerText for comparison
     let elementText = element.innerText;
 
@@ -55,12 +54,12 @@ class Game {
       element.classList.add("chosen");
       //call the showMatchedLetter() method on the phrase,
       this.activePhrase.showMatchedLetter(element);
-      console.log(chosenCounter);
-      if (this.checkForWin(chosenCounter)){
+      
+      
+  
+      if (this.checkForWin()) {
         this.gameOver();
       }
-
-      
     } else {
       //otherwise add the wrong class
       element.classList.add("wrong");
@@ -84,13 +83,22 @@ class Game {
     this.missed += 1;
   }
 
-  checkForWin(counter) {
-    if ((splitPhrase.length-spaces.length)===chosenCounter){
-      return true;
+  checkForWin() {
+    let shownLetters = document.querySelectorAll(".show");
+    let letters = document.querySelectorAll(".letter");
+    
+    let shownLength=shownLetters.length;   
+
+   
+    let lettersLength=letters.length;
+    if (shownLength===lettersLength){
+      return true
     }
     else{
       return false;
     }
+
+    
     
 
   }
