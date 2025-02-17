@@ -113,15 +113,6 @@ class Game {
       gameMessage.textContent =
         "You have lost the game, Better luck next time, want to try again?";
     }
-    let oldLetters = document.querySelectorAll(".key");
-    oldLetters.forEach((letter) => {
-      letter.classList.remove("chosen");
-      letter.classList.remove("wrong");
-      letter.disabled = false;
-    });
-
-    scoreBoard.forEach((score) => {
-      score.src = "images/liveHeart.png";
-    });
+    
   }
 }

@@ -15,6 +15,16 @@ let game;
 
 ///
 startButton.addEventListener("click", (e) => {
+  let oldLetters = document.querySelectorAll(".key");
+  oldLetters.forEach((letter) => {
+    letter.classList.remove("chosen");
+    letter.classList.remove("wrong");
+    letter.disabled = false;
+  });
+
+  scoreBoard.forEach((score) => {
+    score.src = "images/liveHeart.png";
+  });
    
   game = new Game();
 
@@ -24,6 +34,16 @@ startButton.addEventListener("click", (e) => {
 body.addEventListener("keyup", (e) => {
   //if they hit enter, then the game starts
   if (e.code === "Enter") {
+    let oldLetters = document.querySelectorAll(".key");
+    oldLetters.forEach((letter) => {
+      letter.classList.remove("chosen");
+      letter.classList.remove("wrong");
+      letter.disabled = false;
+    });
+
+    scoreBoard.forEach((score) => {
+      score.src = "images/liveHeart.png";
+    });
     game = new Game();
     game.startGame();
   }
