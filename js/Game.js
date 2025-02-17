@@ -54,11 +54,9 @@ class Game {
       element.classList.add("chosen");
       //call the showMatchedLetter() method on the phrase,
       this.activePhrase.showMatchedLetter(element);
-      
-      
-  
+
       if (this.checkForWin()) {
-        outcome='won'
+        outcome = "won";
         this.gameOver(outcome);
       }
     } else {
@@ -79,7 +77,7 @@ class Game {
         scoreBoard[this.missed].src = "images/lostHeart.png";
       }
     } else {
-      outcome='lost'
+      outcome = "lost";
       this.gameOver(outcome);
     }
     this.missed += 1;
@@ -88,64 +86,42 @@ class Game {
   checkForWin() {
     let shownLetters = document.querySelectorAll(".show");
     let letters = document.querySelectorAll(".letter");
-    
-    let shownLength=shownLetters.length;   
 
-   
-    let lettersLength=letters.length;
-    if (shownLength===lettersLength){
-      return true
-    }
-    else{
+    let shownLength = shownLetters.length;
+
+    let lettersLength = letters.length;
+    if (shownLength === lettersLength) {
+      return true;
+    } else {
       return false;
     }
-    
-
-    
-    
-
   }
 
   gameOver(outcome) {
     //displays the original start screen overlay
-    let gameMessage=document.querySelector('h1');
+    let gameMessage = document.querySelector("h1");
 
     overlay.style.display = "block";
-    
-    if (outcome==='won'){
 
-      
-      overlay.classList.add('win');
-      overlay.classList.remove('lose');
-      gameMessage.textContent='Congratulations, you have won the game, want to play again?';
-      
-
-    }
-    else if(outcome==='lost'){
-      overlay.classList.add('lose');
-      overlay.classList.remove('win');
-      gameMessage.textContent='You have lost the game, Better luck next time, want to try again?';
-
+    if (outcome === "won") {
+      overlay.classList.add("win");
+      overlay.classList.remove("lose");
+      gameMessage.textContent = `Congratulations, you have won the game, it took you only ${this.missed} misses want to play again?`;
+    } else if (outcome === "lost") {
+      overlay.classList.add("lose");
+      overlay.classList.remove("win");
+      gameMessage.textContent =
+        "You have lost the game, Better luck next time, want to try again?";
     }
     let oldLetters = document.querySelectorAll(".key");
-    oldLetters.forEach(letter=>{
+    oldLetters.forEach((letter) => {
       letter.classList.remove("chosen");
       letter.classList.remove("wrong");
-      letter.disabled=false;
-    
+      letter.disabled = false;
+    });
 
-    })
-    
-   scoreBoard.forEach(score=>{
-    score.src = "images/liveHeart.png";
-   })
-    
-    
+    scoreBoard.forEach((score) => {
+      score.src = "images/liveHeart.png";
+    });
   }
-
-    //and depending on the outcome of the game,
-    //updates the overlay h1 element with a friendly
-    //win or loss message, and replaces the overlay’s //
-    //start CSS class with either the win or lose CSS class.
-  
 }
