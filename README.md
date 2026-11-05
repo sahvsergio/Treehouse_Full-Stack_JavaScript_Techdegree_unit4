@@ -1,1 +1,7 @@
-# Treehouse_Full-Stack_JavaScript_Techdegree_unit4
+# Phrase Hunter
+## Project description
+## Features
+## Installation
+## Usage
+## Technologies
+## Screenshots
